@@ -4,15 +4,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Intro a vim</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
+
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -21,13 +22,296 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<img src="images/Vimlogo.svg.png" width="50%" height="50%" alt="">
+				<h2>Tu nuevo viejo amigo</h2>
+			</section>
+			<section>
+				<h2>Objetivo:</h2>
+				<h2 style="color:red">Utilizarlo en el trabajo</h2>
+			</section>
+			<section>
+				<h3>Temario</h3>
+				<ul>
+					<li>Introducción 5'</li>
+					<li>Preguntas frecuentes 5'</li>
+					<li>Aprender haciendo 20~30'</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2>Introducción</h2>
+					<h3>Dile adiós a la máquina de escribir</h3>
+				</section>
+				<section>
+					<h2>Y al mouse</h2>
+				</section>
+				<section>
+					<h2>Y a tu paciencia</h2>
+				</section>
+				<section>
+					<h2>Pero puedo..?</h2>
+					<p>Sí, sí podés hacer...</p>
+				</section>
+				<section>
+					<h1>Advertencia</h1>
+				</section>
+			</section>
+			<section> 
+					<section>
+						<h2>Preguntas frecuentes</h2>	
+					</section>
+					<section>
+						<h2>Sí.</h2>
+					</section>
+					<section>
+						<h3>¿Es difícil en relación a otros editores?</h3>
+						<h3>¿Viene para Linux, Windows, McOS?</h3>
+						<h3>¿Autocompleta?</h3>
+						<h3>¿Tiene consola?</h3>
+						<h3>¿Es libre?</h3>
+						<h3>¿Soporta plugins?</h3>
+					</section>
+					<section>
+						<h3>¿Cómo salgo de acá?</h3>
+							<code>
+ESC :q!
+							</code>
+					</section>
+					<section>
+					<h3>¿Por qué lo debo usar?</h3>
+					<ul>
+						<li>Editamos casi el doble de lo que programamos</li>
+						<li>No quitamos las manos del teclado</li>
+						<li>Shortcuts mnemónicos</li>
+						<li>No dependemos del editor</li>
+						<li>Ya lo tenemos instalado</li>
+						<li>Es necesario</li>
+					</ul>
+					</section>
+			</section>
+			<section>
+				<section>
+					<h2>Aprender haciendo</h2>
+				</section>
+				<section>
+					<h2 style="color:red">No utilizarlo en el trabajo</h2>
+				</section>
+				<section>
+					<h2>Modos</h2>
+					<ol>
+						<li class="fragment grow">Normal</li>
+						<li class="fragment grow">Insert</li>
+						<li class="fragment grow">Visual</li>
+						<li class="fragment grow">Command</li>
+					</ol>
+			</section>
+			<section> 
+				<h2>¿Cómo usarlo en mi editor?</h2>
+				<p>(casi) Todos los IDEs y editores de texto soportan el modo Vim</p>
+			</section>	
+			<section>
+				<h2>¿En dónde está instalado?</h2>
+				Si usamos Git: <code>$vim --version | grep vimrc</code><br>
+				Nos dirá dónde está instalado y sus archivos de configuración
+			</section>
+			<section>
+<pre><code>system vimrc file: "/etc/vimrc"
+user vimrc file: "$HOME/.vimrc"
+2nd user vimrc file: "~/.vim/vimrc"
+user exrc file: "$HOME/.exrc"
+defaults file: "$VIMRUNTIME/defaults.vim"
+fall-back for $VIM: "/etc"
+f-b for $VIMRUNTIME: "/usr/share/vim/vim80"</code></pre>
+			</section>
+
+			<section>
+				<h3>Puesta a punto</h3>
+				Debemos editar un poco el archivo <code>vimrc</code>
+<pre><code>behave mswin " comportamiento Windows
+set mouse=a " usar el mouse a -> all
+set noswapfile " evitamos archivos swap	
+set nowb " idem
+set nobackup " idem 
+set autoread " carga modificaciones
+set autochdir " cd a la carpeta que abrimos el archivo
+set ts=4 " tab de cuatro espacios
+set shiftwidth=4 " salto con identación
+set smarttab " sabe cuándo insertar tab o spaces
+set ai " auto-indenting para programar
+set showmatch " muestra los brackets coincidentes
+set vb " cambia el bell 
+set ruler " muestra la regla de estado
+set backspace=indent,eol,start " hace que el backspace haga lo conocido
+set background=dark " color oscuro para modo consola
+set showmode " muestra el modo actual
+set clipboard=unnamed " da acceso al portapapeles de Windows
+syntax on " ilumina la sintaxis</code></pre>
+			</section>
+			</section>
+
+			<section>
+			<section>
+				<h2>Lo más básico</h2>
+				10 cosas que necesitas saber de Vim
+			</section>
+			<section>
+				<h3>1. Salir</h3>
+							<code>
+ESC :q!
+							</code>
+			</section>
+			<section>
+				<h3>2. Guardar</h3>
+							<code>
+ESC :w
+							</code>
+			</section>
+			<section>
+				<h3>3. Abrir</h3>
+							<code>
+ESC :e [nombre_archivo]
+							</code>
+			</section>
+			<section>
+				<h3>4. Deshacer</h3>
+							<code>
+ESC u
+							</code>
+			</section>
+			<section>
+				<h3>5. Rehacer</h3>
+							<code>
+ESC Ctrl-r
+							</code>
+			</section>
+			<section>
+				<h3>6. Ordenar - identar</h3>
+							<code>
+ESC = =
+							</code>
+			</section>
+			<section>
+				<h3>7. Borrar (cortar)</h3>
+							<code>
+ESC d + movimiento dw, dd, dG, dgg, ...
+							</code>
+			</section>
+			<section>
+				<h3>8. Seleccionar</h3>
+							<code>
+ESC v + movimiento vw, vd, vG, vj, vk, ...
+							</code>
+			</section>
+			<section>
+				<h3>9. Copiar</h3>
+							<code>
+y
+							</code>
+			</section>
+			<section>
+				<h3>10. Pegar</h3>
+							<code>
+ESC p
+							</code>
+			</section>
+			</section>
+			<section>
+			<section>
+				<h2>Modo Command - Normal</h2>
+				<img src="images/commando.jpg" height="50%" width="50%" alt="">
+			</section>
+			<section>
+				Es el modo que nos da Vim de un incio a menos que le indiquemos lo contrario.<br>
+				<img src="images/normal-command.png" alt="">
+			</section>
+			<section>
+				<h3>Movimientos (I)</h3>
+				<img src="images/hjkl.png" alt="">
+			</section>
+			<section>
+				<h3>Movimientos (II)</h3>
+<pre><code>w - (word) adelante de a una palabra
+W - (Word) adelante de a una PALABRA definida con espacio
+b - (back) retrocede de a una palabra
+B - (Back) retrocede de a una PALABRA
+e - (end) adelante hacia el final de una palabra
+E - (End) adelante hacia el final de una PALABRA</code></pre>
+			</section>
+			<section>
+				<h3>Movimientos (III)</h3>
+<pre><code>$ - mueve el cursor al final de la línea
+0 - mueve el curso al principio de la línea
+G - va al final del archivo
+gg - al principio del archivo
+{ - salta a la línea en blanco anterior, párrafo
+} - salta a la línea en blanco posterior
+M - lleva el cursor a la mitad de la pantalla
+:[num] - lleva el cursor al principio de la línea indicada
+zz - centra la pantalla al cursor
+</code></pre>
+			</section>
+			<section>
+				<h3>Comandos de inserción</h3>
+ Cambian el estado <code>normal mode -> insert mode</code>
+<pre><code>i - (insert) mode
+I - (insert) mode al final de la línea
+s - (subtle) borra el caracter debajo del cursor -> insert mode
+S - (Subtle) borra la línea -> insert mode 
+a - (append) insert mode inmeditamente después del cursor
+A - (Append) igual que a pero al final de la línea
+o - (open) insert mode abriendo una línea debajo
+O - (Open) insert mode abriendo una línea arriba
+C - (cut off) borra hasta el final de la línea luego insert mode
+. - repite la última operación</code></pre>
+			</section>
+			<section>
+				<h3>Copy/Paste</h3>
+<pre><code>y - (yank) copia: yw (yank word)
+p - (paste) pega después del cursor
+P - (Paste) pega antes del cursor</code></pre>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>Comandos avanzados</h2>
+			</section>
+			<section>
+				<h3>Buscar</h3>
+<pre><code>/[text] - busca hacia adelante
+n - (next) y N (before next)
+?[text] - busca hacia atrás
+</code></pre>
+			</section>
+			<section>
+				<h3>Editar entre</h3>
+<pre><code>ci( - (change) (inside) (
+ci" - (change) (inside) "
+</code></pre>
+			</section>
+			<section>
+				<h3>Buscar y reemplazar</h3>
+				Busca [text] reemplaza con [replacement] pero con <code>gc</code>
+<pre><code>:%s/text/replacement/gc - pregunta antes de reemplazar</code></pre>
+			</section>
+			<section>
+				<h3>Abreviación</h3>
+				<code>:ab rlw ReallyLongWord</code>
+				<br>escribir rlw y luego tab reemplazará por ReallyLongWord
+			</section>
+			<section>
+				<h3>Guardar y salir</h3>
+				<code>ZZ</code>
+			</section>
+		</section>
+		<section>
+			<h2>Gracias.</h2>
+		</section>
 		</div>
+	</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
