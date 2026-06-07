@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: La Dualidad de la IA — Guía y Crítica</title>
+    <meta name="description" content="Una presentación interactiva sobre cómo optimizar la IA, sus costos ecológicos latentes y el impacto global de los algoritmos extractivistas.">
+    <!-- Google Fonts: Playfair Display (Serif de Periódico) e Inter (Lectura Clara) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3.1">
+</head>
+<body>
+
+    <!-- Progress bar on top of the slide deck -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Main Slide Deck Container -->
+    <div class="deck-wrapper">
+        <main class="deck-container" id="deck-container">
+            
+            <!-- SLIDE 1: PORTADA -->
+            <section class="slide-card active" id="slide-0" data-slide-index="0">
+                <div class="slide-header">
+                    <span class="slide-category">LA GACETA DE LA IA • PORTADA</span>
+                    <span class="slide-number">Diapositiva 1 de 8</span>
+                </div>
+                <div class="slide-content cover-content">
+                    <h1 class="cover-title">Trascender el Chatbot</h1>
+                    <h2 class="cover-subtitle">La Dualidad de la IA: Eficiencia Técnica frente a Costo Planetario</h2>
+                    <p class="cover-description">
+                        Una investigación interactiva sobre optimización avanzada de modelos de lenguaje, el impacto de su infraestructura material, el balance de su economía y las dinámicas del extractivismo digital.
+                    </p>
+                    <div class="cover-meta">
+                        <div class="cover-authors">Por <strong>Antigravity y Tadeork</strong></div>
+                        <div class="cover-date">Domingo, 7 de Junio de 2026</div>
+                    </div>
+                    <button class="btn-start-presentation" id="btn-start" onclick="nextSlide()">Iniciar Presentación →</button>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: SECCIÓN 1 - GIRO CORPORATIVO -->
+            <section class="slide-card" id="slide-1" data-slide-index="1">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 1: EL GIRO CORPORATIVO</span>
+                    <span class="slide-number">Diapositiva 2 de 8</span>
+                </div>
+                <div class="slide-content">
+                    <h2 class="slide-title">El Shift Narrativo de los CEOs de IA</h2>
+                    
+                    <div class="slide-columns-with-img">
+                        <div class="slide-text-side">
+                            <p class="slide-lead">La transición discursiva desde la "salvaguarda de la humanidad" hacia la comercialización acelerada y la carrera por la infraestructura energética.</p>
+                            
+                            <div class="slide-news-bullets">
+                                <div class="bullet-item">
+                                    <strong>Lucro Primero:</strong> OpenAI reestructura su gobernanza a corporación comercial para atraer grandes capitales, otorgando acciones a Sam Altman <a href="#ref-cnbc" class="cite-link">[CNBC, 2024]</a>.
+                                </div>
+                                <div class="bullet-item">
+                                    <strong>Energía Ilimitada:</strong> El discurso corporativo promueve la necesidad de fusión nuclear para compensar el gasto energético del entrenamiento <a href="#ref-reuters" class="cite-link">[Reuters, 2024]</a>.
+                                </div>
+                                <div class="bullet-item">
+                                    <strong>Riesgos Postergados:</strong> Disolución del equipo de seguridad "Superalignment" tras renuncias de investigadores que criticaron la prioridad en productos atractivos <a href="#ref-wired" class="cite-link">[Wired, 2024]</a>.
+                                </div>
+                                <div class="bullet-item">
+                                    <strong>Soberanía de Datos:</strong> Cabildeo para clústeres de 5 gigavatios argumentando que es un asunto estratégico frente a competidores geopolíticos <a href="#ref-bloomberg" class="cite-link">[Bloomberg, 2024]</a>.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-image-side">
+                            <figure class="slide-figure">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Centro de Datos e Infraestructura de Servidores" class="slide-img">
+                                <figcaption>Infraestructura de red de servidores masivos. Ref: [IEA, 2024].</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: SECCIÓN 2 - GUÍA DE PERSONALIZACIÓN -->
+            <section class="slide-card" id="slide-2" data-slide-index="2">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 2: PERSONALIZACIÓN</span>
+                    <span class="slide-number">Diapositiva 3 de 8</span>
+                </div>
+                <div class="slide-content">
+                    <h2 class="slide-title">Guía Sencilla: Adapta tu IA a tus Necesidades</h2>
+                    
+                    <div class="slide-columns-with-img">
+                        <div class="slide-text-side">
+                            <p class="slide-lead">No tienes que usar la IA 'de fábrica'. Configurar tres opciones básicas te permite obtener respuestas mucho más útiles y adaptadas a ti.</p>
+                            
+                            <div class="slide-opt-bullets">
+                                <div class="opt-bullet">
+                                    <strong>Personalidad del Asistente (Instrucciones):</strong> Explícale a la IA quién eres (ej: docente, estudiante, aficionado a la cocina) y cómo quieres que te responda. Así recordará tus preferencias sin tener que repetirlas en cada chat nuevo.
+                                </div>
+                                <div class="opt-bullet">
+                                    <strong>Nivel de Creatividad (Temperatura):</strong> Puedes decidir qué tan imaginativa es la IA. Usa niveles bajos (precisión y seriedad) para resumir o traducir textos, y niveles altos (creatividad y variedad) para idear nombres, poemas o recetas.
+                                </div>
+                                <div class="opt-bullet">
+                                    <strong>Sube tus propios Archivos:</strong> Sube un archivo PDF o de texto (como apuntes de estudio, manuales o un currículum). La IA leerá ese documento específico para responderte, reduciendo errores y datos falsos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-image-side">
+                            <figure class="slide-figure">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Workspace limpio" class="slide-img">
+                                <figcaption>Configurando las opciones de respuesta del modelo de IA.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: SECCIÓN 3 - CREADOR DE PERSONALIZACIÓN -->
+            <section class="slide-card" id="slide-3" data-slide-index="3">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 3: PERSONALIZADOR</span>
+                    <span class="slide-number">Diapositiva 4 de 8</span>
+                </div>
+                <div class="slide-content widget-slide-content">
+                    <h2 class="slide-title-compact">Creador de Instrucciones de Personalización</h2>
+                    
+                    <div class="ppt-widget-layout">
+                        <!-- Input controls -->
+                        <div class="ppt-widget-inputs">
+                            <form id="prompt-form" onsubmit="return false;">
+                                <div class="form-row-ppt">
+                                    <label for="input-role">¿QUIÉN ERES O QUÉ ROL ADOPTAS?</label>
+                                    <input type="text" id="input-role" value="Profesor de Historia de escuela secundaria">
+                                </div>
+                                <div class="form-row-ppt">
+                                    <label for="input-context">¿CUAL ES TU CONTEXTO O REGLAS?</label>
+                                    <textarea id="input-context" rows="3">Explico conceptos históricos difíciles usando analogías sencillas de la vida diaria. Siempre traduzco términos complejos y propongo preguntas de reflexión al final.</textarea>
+                                </div>
+                                <div class="form-row-ppt">
+                                    <label for="input-tone">¿CÓMO QUIERES QUE TE HABLE LA IA?</label>
+                                    <select id="input-tone">
+                                        <option value="cercano, didáctico y explicando con analogías sencillas y cotidianas">Didáctico y Cercano (Amigable)</option>
+                                        <option value="directo, sumamente objetivo, breve y enfocado en datos históricos contrastados">Directo y Objetivo (Sin rodeos)</option>
+                                        <option value="creativo, inspirador y sugiriendo actividades lúdicas o juegos de rol">Creativo y Lúdico</option>
+                                    </select>
+                                </div>
+                                <div class="form-row-ppt">
+                                    <label for="input-format">¿CÓMO DEBE ORGANIZAR LA RESPUESTA?</label>
+                                    <select id="input-format">
+                                        <option value="un breve resumen narrativo seguido de una lista ordenada de puntos clave y una analogía explicativa">Resumen y Puntos Clave</option>
+                                        <option value="una conversación simulada en formato de preguntas y respuestas cortas, ideal para estudiar">Preguntas y Respuestas</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Output box -->
+                        <div class="ppt-widget-preview">
+                            <div class="preview-actions">
+                                <span>INSTRUCCIONES GENERADAS</span>
+                                <button class="btn-copy" id="btn-copy-prompt">
+                                    <span id="copy-text">Copiar bloque</span>
+                                </button>
+                            </div>
+                            <pre class="preview-body-ppt" id="preview-output">Cargando...</pre>
+                            <p class="ppt-help-text">💡 Pega esto en el campo de "Instrucciones Personalizadas" o "System Instructions" de tu IA.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: SECCIÓN 4 - COSTO AMBIENTAL -->
+            <section class="slide-card" id="slide-4" data-slide-index="4">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 4: COSTO AMBIENTAL</span>
+                    <span class="slide-number">Diapositiva 5 de 8</span>
+                </div>
+                <div class="slide-content widget-slide-content">
+                    <h2 class="slide-title-compact">La Huella de la Infraestructura Física</h2>
+                    
+                    <div class="slide-columns-with-img-compact">
+                        <div class="slide-left-side-calculator">
+                            <div class="slide-metrics-row-compact">
+                                <div class="slide-metric-box">
+                                    <span class="metric-num">10x</span>
+                                    <span class="metric-desc"><strong>Energía:</strong> ~2.9 Wh por consulta en IA frente a ~0.3 Wh de Google <a href="#ref-iea" class="cite-link">[IEA, 2024]</a>.</span>
+                                </div>
+                                <div class="slide-metric-box">
+                                    <span class="metric-num">500ml</span>
+                                    <span class="metric-desc"><strong>Agua:</strong> Evaporada cada 20-50 consultas en disipar calor <a href="#ref-li" class="cite-link">[Li et al., 2023]</a>.</span>
+                                </div>
+                            </div>
+
+                            <div class="ppt-calculator">
+                                <div class="ppt-calc-inputs">
+                                    <div class="form-row-ppt">
+                                        <label for="range-queries">CONSULTAS DIARIAS: <span id="queries-val" class="queries-value-display">25</span></label>
+                                        <input type="range" id="range-queries" min="1" max="100" value="25" class="paper-slider">
+                                    </div>
+                                    <div class="form-row-ppt">
+                                        <label for="select-model">COMPLEJIDAD DEL MODELO:</label>
+                                        <select id="select-model" class="paper-select">
+                                            <option value="0.5">Modelos Ligeros y Destilados (ej: GPT-4o-mini)</option>
+                                            <option value="1.0" selected>Modelos de Frontera Estándar (ej: GPT-4o, Claude Sonnet)</option>
+                                            <option value="3.0">Agentes Complejos / Razonamiento Profundo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="ppt-calc-outputs">
+                                    <div class="ppt-output-block">
+                                        <span class="ppt-block-title">ENERGÍA:</span>
+                                        <span class="ppt-block-num" id="val-energy">72.5 Wh</span>
+                                        <span class="ppt-block-sub">Foco LED encendido por <strong id="val-energy-led">7.2 h</strong>.</span>
+                                    </div>
+                                    <div class="ppt-output-block">
+                                        <span class="ppt-block-title">AGUA:</span>
+                                        <span class="ppt-block-num" id="val-water">375 ml</span>
+                                    </div>
+                                    <div class="ppt-output-block">
+                                        <span class="ppt-block-title">CARBONO:</span>
+                                        <span class="ppt-block-num" id="val-co2">32.6 g CO2</span>
+                                        <span class="ppt-block-sub">Equivale a <strong id="val-co2-car">0.27 km</strong> en auto.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-right-side-image">
+                            <figure class="slide-figure">
+                                <img src="residuos_electronicos.png" alt="Residuos electrónicos apilados" class="slide-img-compact">
+                                <figcaption>Obsolescencia física rápida en hardware de IA. Ref: [Crawford, 2021].</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: SECCIÓN 5 - LA BURBUJA FINANCIERA (NUEVA) -->
+            <section class="slide-card" id="slide-5" data-slide-index="5">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 5: LA ECONOMÍA DE LA IA</span>
+                    <span class="slide-number">Diapositiva 6 de 8</span>
+                </div>
+                <div class="slide-content widget-slide-content">
+                    <h2 class="slide-title-compact">La Burbuja Financiera: Inversión frente a Retorno de Capital</h2>
+                    <p class="slide-lead">Los análisis financieros estiman una brecha crítica entre el gasto de capital (Capex) en hardware y los ingresos reales por software.</p>
+                    
+                    <div class="finance-slide-layout">
+                        <div class="finance-calc-side">
+                            <div class="calc-header-editorial-compact">
+                                <h3>SIMULADOR DE RENTABILIDAD DE IA (BREAK-EVEN)</h3>
+                                <span class="calc-sub-tag">En base a amortización y tarifas estándar de 20 USD/mes</span>
+                            </div>
+
+                            <div class="finance-calculator-box">
+                                <div class="form-row-ppt">
+                                    <label for="range-investment">INVERSIÓN EN INFRAESTRUCTURA DE IA (CAPEX ANUAL): <span id="investment-val" class="queries-value-display">$100B</span></label>
+                                    <div class="slider-wrapper">
+                                        <input type="range" id="range-investment" min="10" max="600" step="10" value="100" class="paper-slider">
+                                    </div>
+                                    <p class="range-subtext">Estima el gasto total de las Big Tech en construir clústeres y comprar chips.</p>
+                                </div>
+
+                                <div class="finance-results-grid">
+                                    <div class="finance-result-block">
+                                        <span class="ppt-block-title">AMORTIZACIÓN ANUAL ESTIMADA:</span>
+                                        <span class="ppt-block-num" id="val-amortization">$150.0B</span>
+                                        <p class="ppt-block-sub">Incluye amortización de chips (3 años) + costos operativos (energía y red).</p>
+                                    </div>
+                                    <div class="finance-result-block">
+                                        <span class="ppt-block-title">SUSCRIPTORES EXIGIDOS PARA BREAK-EVEN:</span>
+                                        <span class="ppt-block-num" id="val-subscribers">625.0M</span>
+                                        <p class="ppt-block-sub">Suscripciones individuales activas requeridas para cubrir la inversión.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="finance-info-side">
+                            <div class="external-links-panel">
+                                <h4>MONITORES DE RENTABILIDAD EN TIEMPO REAL:</h4>
+                                
+                                <div class="link-card-ppt">
+                                    <h5>IS AI PROFITABLE?</h5>
+                                    <p>Proyecto independiente que calcula y visualiza el Capex estimado frente a las ganancias de las divisiones de IA de las Big Tech.</p>
+                                    <a href="https://isaiprofitable.com/" target="_blank" rel="noopener noreferrer" class="newspaper-external-link">
+                                        Visitar isaiprofitable.com ↗
+                                    </a>
+                                </div>
+
+                                <div class="link-card-ppt">
+                                    <h5>THE $600 BILLION QUESTION</h5>
+                                    <p>Análisis macroeconómico de David Cahn (Sequoia Capital) sobre la facturación de software requerida para repagar la inversión física en silicio.</p>
+                                    <a href="https://www.sequoiacap.com/article/ais-600-billion-question/" target="_blank" rel="noopener noreferrer" class="newspaper-external-link">
+                                        Leer análisis de Sequoia ↗
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: SECCIÓN 6 - ALGORITMOS EXTRACTIVISTAS -->
+            <section class="slide-card" id="slide-6" data-slide-index="6">
+                <div class="slide-header">
+                    <span class="slide-category">SECCIÓN 6: ALGORITMOS EXTRACTIVISTAS</span>
+                    <span class="slide-number">Diapositiva 7 de 8</span>
+                </div>
+                <div class="slide-content">
+                    <h2 class="slide-title">Algoritmos Extractivistas: El Cercamiento Material y de Datos</h2>
+                    
+                    <div class="slide-columns-with-img">
+                        <div class="slide-text-side">
+                            <p class="slide-lead">La inteligencia artificial depende del cercamiento de los comunes digitales, del trabajo precarizado y la extracción material territorial.</p>
+                            
+                            <div class="slide-news-bullets">
+                                <div class="bullet-item">
+                                    <strong>Colonialismo de Datos:</strong> Expropiación sistematizada del conocimiento y producciones culturales en internet para privatizarlo bajo modelos de suscripción cerrada <a href="#ref-couldry" class="cite-link">[Couldry y Mejias, 2019]</a>.
+                                </div>
+                                <div class="bullet-item">
+                                    <strong>Trabajo Invisible:</strong> Moderadores en países en desarrollo (ej: Kenia) expuestos a contenidos extremadamente violentos por menos de $2 por hora para depurar respuestas <a href="#ref-time" class="cite-link">[Time, 2023]</a>.
+                                </div>
+                                <div class="bullet-item">
+                                    <strong>Extracción Material:</strong> Minería intensiva de cobalto y litio en el Sur Global junto con demandas masivas de agua local, compitiendo con recursos de comunidades <a href="#ref-crawford" class="cite-link">[Crawford, 2021]</a>.
+                                </div>
+                            </div>
+
+                            <div class="ppt-slide-quote-compact">
+                                <blockquote>
+                                    "La inteligencia artificial es una infraestructura material construida mediante la extracción sistemática de los recursos de la Tierra, del trabajo humano precarizado y de los datos comunes."
+                                </blockquote>
+                                <cite>— Inspirado en Kate Crawford, <em>Atlas of AI</em> (2021)</cite>
+                            </div>
+                        </div>
+
+                        <div class="slide-image-side">
+                            <figure class="slide-figure">
+                                <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&q=80" alt="Espacio de trabajo administrativo digital" class="slide-img">
+                                <figcaption>Moderación y etiquetado de datos precarizado en el Sur Global. Ref: [Time, 2023].</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: REFERENCIAS BIBLIOGRÁFICAS -->
+            <section class="slide-card" id="slide-7" data-slide-index="7">
+                <div class="slide-header">
+                    <span class="slide-category">REFERENCIAS BIBLIOGRÁFICAS</span>
+                    <span class="slide-number">Diapositiva 8 de 8</span>
+                </div>
+                <div class="slide-content references-slide-content">
+                    <h2 class="slide-title-compact">Fuentes Científicas e Investigaciones Editoriales</h2>
+                    
+                    <div class="references-scroll-area">
+                        <ul class="references-list-ppt">
+                            <li id="ref-cnbc">
+                                <strong>CNBC (2024).</strong> <em>"OpenAI plans to restructure corporate governance, become for-profit"</em>. Reestructuración de la junta directiva hacia un esquema lucrativo de beneficio público para captación de capitales privados.
+                            </li>
+                            <li id="ref-reuters">
+                                <strong>Reuters (2024).</strong> <em>"Altman says future AI depends on energy breakthrough"</em>. Declaraciones sobre las proyecciones de clústeres eléctricos de alto rendimiento y su demanda insostenible de energía.
+                            </li>
+                            <li id="ref-wired">
+                                <strong>Wired (2024).</strong> <em>"OpenAI's safety team collapses as top researchers resign"</em>. Renuncia de investigadores del equipo de Superalineación, denunciando que las métricas comerciales subordinaron el análisis de riesgos.
+                            </li>
+                            <li id="ref-bloomberg">
+                                <strong>Bloomberg (2024).</strong> <em>"OpenAI pitches White House on massive data centers"</em>. Propuesta gubernamental de clústeres de 5 gigavatios y justificación del consumo de infraestructura por competencia geopolítica.
+                            </li>
+                            <li id="ref-iea">
+                                <strong>Agencia Internacional de la Energía (IEA, 2024).</strong> <em>"Electricity 2024: Analysis and forecast to 2026"</em>. Estimación de un consumo eléctrico promedio de 2.9 Wh por consulta estructurada de IA.
+                            </li>
+                            <li id="ref-li">
+                                <strong>Li, P., et al. (2023).</strong> <em>"Making AI Less 'Thirsty': Uncovering and Addressing the Unseen Environmental Footprint of ChatGPT"</em>. Universidad de California, Riverside. Análisis de la evaporación física de agua dulce para enfriar centros de procesamiento informático.
+                            </li>
+                            <li id="ref-crawford">
+                                <strong>Crawford, Kate (2021).</strong> <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</em>. Yale University Press. Ensayo sobre la materialidad física y los impactos sociológicos de la cadena de valor de la IA.
+                            </li>
+                            <li id="ref-couldry">
+                                <strong>Couldry, N., & Mejias, U. A. (2019).</strong> <em>The Costs of Connection</em>. Stanford University Press. Marco teórico sobre el colonialismo de datos y la expropiación algorítmica de la vida social.
+                            </li>
+                            <li id="ref-time">
+                                <strong>Time Magazine (2023).</strong> <em>"Behind the AI boom, an army of database labelers"</em>. Investigación periodística sobre la subcontratación de Sama y moderadores kenianos pagados a menos de 2 USD por hora.
+                            </li>
+                            <li id="ref-isaiprofitable">
+                                <strong>Is AI Profitable? (2026).</strong> <em>Capital Expenditure vs Revenue Tracker</em>. Tracker de viabilidad e inversión global en infraestructura de inteligencia artificial disponible en <a href="https://isaiprofitable.com/" target="_blank" rel="noopener noreferrer" class="cite-link">isaiprofitable.com</a>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Presentation Navigation Controls (Bottom Bar) -->
+        <footer class="deck-controls-bar">
+            <button class="nav-control-btn" id="prev-btn" onclick="prevSlide()" disabled>← Anterior</button>
+            <div class="deck-dots" id="deck-dots">
+                <span class="deck-dot active" onclick="goToSlide(0)" title="Portada"></span>
+                <span class="deck-dot" onclick="goToSlide(1)" title="Giro Corporativo"></span>
+                <span class="deck-dot" onclick="goToSlide(2)" title="Personalización"></span>
+                <span class="deck-dot" onclick="goToSlide(3)" title="Personalizador"></span>
+                <span class="deck-dot" onclick="goToSlide(4)" title="Costo Ambiental"></span>
+                <span class="deck-dot" onclick="goToSlide(5)" title="Economía de la IA"></span>
+                <span class="deck-dot" onclick="goToSlide(6)" title="Extractivismo"></span>
+                <span class="deck-dot" onclick="goToSlide(7)" title="Referencias"></span>
+            </div>
+            <button class="nav-control-btn" id="next-btn" onclick="nextSlide()">Siguiente →</button>
+        </footer>
+    </div>
+
+    <script src="app.js?v=3.1"></script>
+</body>
+</html>

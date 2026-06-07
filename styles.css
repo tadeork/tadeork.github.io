@@ -1,0 +1,1029 @@
+/* ==========================================================================
+   Design System: Newspaper Presentation Theme (Inspired by NY Times & Slides)
+   ========================================================================== */
+:root {
+    /* Color Palette - Cream paper slides, charcoal background, and editorial burgundy */
+    --bg-canvas: #15181e;         /* Dark background simulating a projection room */
+    --bg-paper: #fcfaf6;          /* Warm newsprint paper slide background */
+    --bg-paper-alt: #f5f2eb;      /* Contrast tone for widget inputs */
+    --text-primary: #121212;      /* Ink black for primary copy */
+    --text-secondary: #2b2b2b;    /* Muted ink for body copy */
+    --text-muted: #5a5a5a;        /* Soft gray for tags and references */
+    
+    /* Accents */
+    --accent-burgundy: #8c1919;   /* Burgundy red for highlights & numbers */
+    --border-dark: #121212;
+    --border-light: #e1dbcf;
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', Arial, sans-serif;
+    
+    /* Transitions */
+    --transition-slide: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 0.2s ease;
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden; /* Prevent scrolling outside the slide deck on desktop */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Progress Bar at the top */
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent-burgundy);
+    transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   Presentation Layout Wrapper
+   ========================================================================== */
+.deck-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    height: 100%;
+}
+
+.deck-container {
+    width: 100%;
+    max-width: 1100px;
+    height: 78vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================================================
+   Slide Card (Proportions 16:9 Simulation)
+   ========================================================================== */
+.slide-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-paper);
+    border: 1px solid #eae5db;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    padding: 2.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100px) scale(0.98);
+    transition: var(--transition-slide);
+    z-index: 1;
+}
+
+/* Slide Card State Modifications */
+.slide-card.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    z-index: 10;
+}
+
+.slide-card.prev {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100px) scale(0.98);
+}
+
+/* Slide Header */
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.slide-category {
+    color: var(--accent-burgundy);
+    text-transform: uppercase;
+}
+
+.slide-number {
+    color: var(--text-primary);
+}
+
+/* Slide Content Core */
+.slide-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-title {
+    font-family: var(--font-serif);
+    font-size: 2.15rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.slide-title-compact {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.slide-lead {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Slide 1: Cover Page Layout
+   ========================================================================== */
+.cover-content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cover-title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+}
+
+.cover-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--accent-burgundy);
+    margin-bottom: 2rem;
+}
+
+.cover-description {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.cover-meta {
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0.8rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    gap: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.btn-start-presentation {
+    background-color: var(--border-dark);
+    color: var(--bg-paper);
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-start-presentation:hover {
+    background-color: var(--accent-burgundy);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Image Slides Grid Layouts (Text Left, Image Right)
+   ========================================================================== */
+.slide-columns-with-img {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.slide-text-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-news-bullets,
+.slide-opt-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.bullet-item,
+.opt-bullet {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    border-left: 2px solid var(--border-light);
+    padding-left: 0.8rem;
+    text-align: justify;
+}
+
+.bullet-item strong,
+.opt-bullet strong {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--accent-burgundy);
+    display: block;
+    margin-bottom: 0.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.slide-image-side {
+    display: flex;
+    justify-content: center;
+}
+
+.slide-template-side {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.template-infographic {
+    background-color: #fff;
+    border: 1px solid var(--border-light);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.template-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+/* Figure & Print Photo Filter */
+.slide-figure {
+    border: 1px solid var(--border-light);
+    background-color: #fff;
+    padding: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    width: 100%;
+}
+
+.slide-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: 1px solid var(--border-light);
+    /* Sepia/grayscale filter to look like paper print */
+    filter: grayscale(0.7) sepia(0.18) contrast(1.1);
+    transition: var(--transition-fast);
+}
+
+.slide-figure:hover .slide-img {
+    filter: grayscale(0.2) sepia(0.08) contrast(1.0);
+}
+
+.slide-figure figcaption {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Slide 5 Compact Variant for Image + Calculator */
+.slide-columns-with-img-compact {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.slide-left-side-calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-metrics-row-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.slide-metric-box {
+    border-left: 2px solid var(--accent-burgundy);
+    padding-left: 0.8rem;
+}
+
+.metric-num {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--accent-burgundy);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.metric-desc {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: var(--text-secondary);
+}
+
+.slide-right-side-image {
+    display: flex;
+    justify-content: center;
+}
+
+.slide-img-compact {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 1px solid var(--border-light);
+    filter: grayscale(0.7) sepia(0.18) contrast(1.1);
+}
+
+/* Citations styling */
+.cite-link {
+    color: var(--accent-burgundy);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.cite-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Slide 6: Finance & AI Profitability Slide
+   ========================================================================== */
+.finance-slide-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+    align-items: stretch;
+    height: 100%;
+}
+
+.finance-calc-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.calc-header-editorial-compact {
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.calc-header-editorial-compact h3 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.calc-sub-tag {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.finance-calculator-box {
+    background-color: var(--bg-paper-alt);
+    border: 1px solid var(--border-light);
+    padding: 1.5rem;
+}
+
+.range-subtext {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.finance-results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px dashed var(--border-light);
+    padding-top: 1.2rem;
+}
+
+.finance-result-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.finance-result-block .ppt-block-num {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-burgundy);
+    margin: 0.2rem 0;
+}
+
+/* Info & External Links side */
+.finance-info-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.external-links-panel {
+    border: 1px solid var(--border-light);
+    background-color: #fff;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.external-links-panel h4 {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.link-card-ppt {
+    border-bottom: 1px dashed var(--border-light);
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.link-card-ppt:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.link-card-ppt h5 {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-burgundy);
+    margin-bottom: 0.2rem;
+}
+
+.link-card-ppt p {
+    font-family: var(--font-serif);
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+.newspaper-external-link {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: underline;
+    transition: var(--transition-fast);
+}
+
+.newspaper-external-link:hover {
+    color: var(--accent-burgundy);
+}
+
+/* ==========================================================================
+   Slide 7: Extractivist Quote Compact Styles
+   ========================================================================== */
+.ppt-slide-quote-compact {
+    border-top: 1px dashed var(--border-light);
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.ppt-slide-quote-compact blockquote {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.45;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.ppt-slide-quote-compact cite {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   Slide 8: References Slide Layout
+   ========================================================================== */
+.references-slide-content {
+    height: 100%;
+}
+
+.references-scroll-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 380px;
+    padding-right: 1rem;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+}
+
+.references-list-ppt {
+    list-style: none;
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.references-list-ppt li {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--border-light);
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.references-list-ppt li:last-child {
+    border-bottom: none;
+}
+
+.references-list-ppt strong {
+    color: var(--text-primary);
+}
+
+/* Custom scrollbars */
+.preview-body-ppt::-webkit-scrollbar,
+.template-body-ppt::-webkit-scrollbar,
+.references-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.preview-body-ppt::-webkit-scrollbar-thumb,
+.template-body-ppt::-webkit-scrollbar-thumb,
+.references-scroll-area::-webkit-scrollbar-thumb {
+    background-color: var(--border-light);
+}
+
+/* ==========================================================================
+   Slide 4: Widget layout
+   ========================================================================== */
+.widget-slide-content {
+    justify-content: flex-start;
+}
+
+.ppt-widget-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    flex-grow: 1;
+}
+
+.ppt-widget-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-row-ppt {
+    margin-bottom: 0.8rem;
+}
+
+.form-row-ppt:last-child {
+    margin-bottom: 0;
+}
+
+.form-row-ppt label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.form-row-ppt input[type="text"],
+.form-row-ppt textarea,
+.form-row-ppt select {
+    width: 100%;
+    background-color: var(--bg-paper-alt);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    padding: 0.55rem 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    outline: none;
+}
+
+.form-row-ppt input[type="text"]:focus,
+.form-row-ppt textarea:focus,
+.form-row-ppt select:focus {
+    border-color: var(--accent-burgundy);
+}
+
+.ppt-widget-preview {
+    background-color: #fff;
+    border: 1px solid var(--border-light);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.preview-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.btn-copy {
+    background-color: var(--border-dark);
+    color: var(--bg-paper);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-copy:hover {
+    background-color: var(--accent-burgundy);
+}
+
+.preview-body-ppt,
+.template-body-ppt {
+    font-family: monospace;
+    font-size: 0.8rem;
+    background-color: var(--bg-paper-alt);
+    border: 1px solid #eae5db;
+    padding: 0.8rem 1rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 180px;
+    color: #222;
+    line-height: 1.4;
+}
+
+.ppt-help-text {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+}
+
+/* ==========================================================================
+   Slide 5: Carbon Calculator Layout
+   ========================================================================== */
+.ppt-calculator {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    background-color: var(--bg-paper-alt);
+    border: 1px solid var(--border-light);
+    padding: 1.5rem;
+    align-items: center;
+}
+
+.ppt-calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.paper-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--border-light);
+    outline: none;
+    margin: 0.5rem 0;
+}
+
+.paper-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--border-dark);
+    cursor: pointer;
+}
+
+.paper-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--border-dark);
+    cursor: pointer;
+    border: none;
+}
+
+.queries-value-display {
+    color: var(--accent-burgundy);
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+.ppt-calc-outputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+}
+
+.ppt-output-block {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dashed var(--border-light);
+    padding-right: 0.8rem;
+}
+
+.ppt-output-block:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.ppt-block-title {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.ppt-block-num {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--accent-burgundy);
+    margin: 0.2rem 0;
+}
+
+.ppt-block-sub {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   Bottom Controls Bar
+   ========================================================================== */
+.deck-controls-bar {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-family: var(--font-sans);
+}
+
+.nav-control-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.nav-control-btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav-control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.deck-dots {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.deck-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.deck-dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.deck-dot.active {
+    background-color: var(--accent-burgundy);
+    box-shadow: 0 0 8px var(--accent-burgundy);
+}
+
+/* ==========================================================================
+   Responsive Adaptations & Mobile Snap Scrolling
+   ========================================================================== */
+@media (max-width: 992px) {
+    body {
+        overflow-y: auto; /* Allow scrolling on mobile */
+        height: auto;
+    }
+    
+    .progress-bar-container {
+        display: none; /* No top progress bar on scroll mobile */
+    }
+    
+    .deck-wrapper {
+        padding: 1rem 0;
+        height: auto;
+        display: block;
+    }
+    
+    .deck-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .slide-card {
+        position: static; /* Stack vertically */
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        height: auto;
+        width: 100%;
+        min-height: auto;
+        padding: 2rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .deck-controls-bar {
+        display: none; /* Hide slideshow controls on mobile scroll list */
+    }
+    
+    .slide-columns-with-img,
+    .slide-columns-with-img-compact,
+    .ppt-widget-layout,
+    .ppt-calculator,
+    .finance-slide-layout,
+    .finance-results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .bullet-item,
+    .opt-bullet {
+        border-left: none;
+        padding-left: 0;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 0.8rem;
+    }
+    
+    .bullet-item:last-child,
+    .opt-bullet:last-child {
+        border-bottom: none;
+    }
+    
+    .slide-image-side,
+    .slide-right-side-image {
+        margin-top: 1rem;
+    }
+    
+    .slide-metrics-row-compact,
+    .ppt-calc-outputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .ppt-output-block {
+        border-right: none;
+        border-bottom: 1px dashed var(--border-light);
+        padding-bottom: 0.8rem;
+    }
+    
+    .ppt-output-block:last-child {
+        border-bottom: none;
+    }
+    
+    .finance-info-side {
+        margin-top: 1.5rem;
+    }
+    
+    .cover-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    
+    .paper-page {
+        padding: 1.5rem 1.25rem;
+        border: none;
+        box-shadow: none;
+    }
+}
