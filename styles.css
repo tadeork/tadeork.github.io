@@ -923,10 +923,12 @@ body {
 /* ==========================================================================
    Responsive Adaptations & Mobile Snap Scrolling
    ========================================================================== */
-@media (max-width: 992px) {
+/* Mobile Phone Resolution (< 768px) */
+@media (max-width: 767px) {
     body {
         overflow-y: auto; /* Allow scrolling on mobile */
         height: auto;
+        padding: 0;
     }
     
     .btn-start-presentation {
@@ -947,8 +949,8 @@ body {
         display: flex;
         flex-direction: column;
         height: auto;
-        gap: 2rem;
-        padding: 1rem;
+        gap: 1.5rem;
+        padding: 0.8rem;
     }
     
     .slide-card {
@@ -959,14 +961,15 @@ body {
         height: auto;
         width: 100%;
         min-height: auto;
-        padding: 2rem 1.5rem;
-        margin-bottom: 1rem;
+        padding: 1.8rem 1.25rem;
+        margin-bottom: 0.8rem;
     }
     
     .deck-controls-bar {
         display: none; /* Hide slideshow controls on mobile scroll list */
     }
     
+    /* Collapse to 1 column on phone */
     .slide-columns-with-img,
     .slide-columns-with-img-compact,
     .ppt-widget-layout,
@@ -1015,19 +1018,263 @@ body {
         margin-top: 1.5rem;
     }
     
+    /* Compact typography for phone */
     .cover-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .cover-description {
+        font-size: 0.88rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .cover-meta {
+        padding: 0.6rem 1rem;
+        gap: 1rem;
+        font-size: 0.75rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .slide-title {
+        font-size: 1.6rem;
+    }
+    
+    .slide-title-compact {
+        font-size: 1.4rem;
+    }
+    
+    .slide-lead {
+        font-size: 0.92rem;
+        margin-bottom: 1.2rem;
     }
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 0;
+/* Intermediate Tablet Resolution (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .deck-wrapper {
+        padding: 1rem 1.5rem;
+    }
+
+    .deck-container {
+        height: 73vh; /* Reduce slide height slightly to fit taller tablet viewports */
+    }
+
+    .slide-card {
+        padding: 1.8rem 2.2rem; /* Compact padding */
+    }
+
+    .slide-header {
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .slide-title {
+        font-size: 1.7rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide-title-compact {
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .slide-lead {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Cover Page Adjustments */
+    .cover-title {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .cover-subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .cover-description {
+        font-size: 0.88rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cover-meta {
+        padding: 0.6rem 1.5rem;
+        margin-bottom: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .btn-start-presentation {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Grid layout tweaks for tablet */
+    .slide-columns-with-img {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.8rem;
+    }
+
+    .slide-columns-with-img-compact {
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 1.5rem;
+    }
+
+    .ppt-widget-layout {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.8rem;
+    }
+
+    .ppt-calculator {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 1.8rem;
+        padding: 1.2rem;
+    }
+
+    .finance-slide-layout {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.8rem;
+    }
+
+    .finance-results-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+
+    /* Content Lists */
+    .slide-news-bullets,
+    .slide-opt-bullets {
+        gap: 0.5rem;
+    }
+
+    .bullet-item,
+    .opt-bullet {
+        font-size: 0.8rem;
+        line-height: 1.45;
+        padding-left: 0.6rem;
+    }
+
+    .bullet-item strong,
+    .opt-bullet strong {
+        font-size: 0.78rem;
+        margin-bottom: 0.05rem;
+    }
+
+    /* Images */
+    .slide-figure {
+        padding: 0.4rem;
     }
     
-    .paper-page {
-        padding: 1.5rem 1.25rem;
-        border: none;
-        box-shadow: none;
+    .slide-figure figcaption {
+        font-size: 0.65rem;
+        margin-top: 0.3rem;
+    }
+
+    /* Widget Form Controls */
+    .form-row-ppt {
+        margin-bottom: 0.6rem;
+    }
+
+    .form-row-ppt label {
+        font-size: 0.68rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .form-row-ppt input[type="text"],
+    .form-row-ppt textarea,
+    .form-row-ppt select {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.78rem;
+    }
+
+    .ppt-widget-preview {
+        padding: 1rem;
+    }
+
+    .preview-body-ppt,
+    .template-body-ppt {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+        max-height: 140px;
+    }
+
+    /* Footprint Calculator outputs */
+    .ppt-calc-outputs {
+        gap: 0.8rem;
+    }
+
+    .ppt-output-block {
+        padding-right: 0.6rem;
+    }
+
+    .ppt-block-num {
+        font-size: 1.2rem;
+    }
+
+    .ppt-block-title,
+    .ppt-block-sub {
+        font-size: 0.6rem;
+    }
+
+    /* Finance Simulator outputs */
+    .finance-calculator-box {
+        padding: 1rem;
+    }
+
+    .finance-result-block .ppt-block-num {
+        font-size: 1.5rem;
+    }
+
+    .external-links-panel {
+        padding: 1rem;
+    }
+
+    .link-card-ppt {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .link-card-ppt h5 {
+        font-size: 0.75rem;
+    }
+
+    .link-card-ppt p {
+        font-size: 0.7rem;
+    }
+
+    /* Quote Slide */
+    .ppt-slide-quote-compact {
+        padding-top: 0.6rem;
+        margin-top: 0.6rem;
+    }
+
+    .ppt-slide-quote-compact blockquote {
+        font-size: 0.85rem;
+    }
+
+    /* References List */
+    .references-scroll-area {
+        max-height: 270px;
+        padding-top: 0.8rem;
+    }
+
+    .references-list-ppt li {
+        font-size: 0.78rem;
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    /* Bottom Controls */
+    .deck-controls-bar {
+        margin-top: 1rem;
     }
 }
